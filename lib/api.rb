@@ -16,7 +16,7 @@ class Api
         uri = URI(url)
         response = Net::HTTP.get(uri)
         articles = JSON.parse(response)
-        puts " How many articles do you want in your page?"
+        puts "How many articles do you want in your page?"
             n=gets.strip
             i=n.to_i
         articles["articles"][1..i]
@@ -24,7 +24,8 @@ class Api
     end
 
     def create_articles
-        self.get_articles.each{|article| Article.new(article["title"], article["author"], article["description"], article["content"])}
+        # binding.pry
+        self.get_articles.each{|article| Article.new(article["title"], article["author"], article["id"], article["content"])}
     end
 end
 

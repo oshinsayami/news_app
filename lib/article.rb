@@ -1,18 +1,19 @@
 
 class Article
 
-    attr_accessor :title, :author, :description, :content, :cli
+    attr_accessor :title, :author, :id, :content
 
     @@all = []
     @@save_for_later = []
     @@search_history= []
     
 
-    def initialize(title, author, description, content)
+    def initialize(title, author, id, content)
         @title = title
         @author = author
-        @description = description
+        # @description = description
         @content = content
+        @id = id
         @@all << self
     end
 
@@ -30,13 +31,14 @@ class Article
 
     def self.display_articles
         puts "----------------------------------------------------"
-        puts "Please choose one of the following articles:(1-10)"
+        puts "Please choose one of the following articles:"
         puts "----------------------------------------------------"
         self.all.each_with_index{|article, index| puts "#{index + 1}. #{article.title}"}
         puts "----------------------------------------------------"
     end
 
     def self.display_individual_article(index)
+        # binding.pry
         puts "----------------------------------------------------"
         article= self.all[index]
         puts "#{article.title} -- #{article.author}"
