@@ -5,6 +5,7 @@ class Cli
         puts "----------------------------------------------------"
         puts "Welcome to ALL ABOUT NEWS"
         puts "----------------------------------------------------"
+        # binding.pry
         self.options?
     end
 

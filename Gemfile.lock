@@ -75,6 +75,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  dotenv
   dotenv-rails
   httparty
   json
