@@ -11,8 +11,12 @@ class Api
     end
 
     def get_articles
+        # binding.pry
         t=Time.now
-        url = "http://newsapi.org/v2/everything?q=#{@query}&from=2020-10-#{t.day}&sortBy=publishedAt&apiKey=fedc37138f114bd48c8ae8a239063753"
+        year = t.year
+        month = t.month
+        day = t.day
+        url = "http://newsapi.org/v2/everything?q=#{@query}&from=#{t.year}-#{t.month}-#{t.day}&sortBy=publishedAt&apiKey=fedc37138f114bd48c8ae8a239063753"
         uri = URI(url)
         response = Net::HTTP.get(uri)
         articles = JSON.parse(response)
