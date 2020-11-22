@@ -35,10 +35,14 @@ class Cli
             self.goto_saved_articles?
         when "4"
             self.delete_articles?
-        else 
+        when "5" 
             puts "----------------------------------------------------"
             puts "See you next time"
             puts "----------------------------------------------------"
+        else
+            puts "*****  WRONG INPUT  *****"
+            puts "PLEASE ENTER A NUMBER FROM 1-5"
+            self.options?
         end
     end
 
@@ -71,6 +75,8 @@ class Cli
         str = gets.strip
         if str == "y"
             self.options?
+        else 
+            puts "See you next time."
         end
     end
 
@@ -89,7 +95,10 @@ class Cli
 
     def delete_articles?
         # binding.pry
-        Article.display_saved_articles
+        if Article.display_saved_articles == nil
+            puts "No any saved articles to delete."
+        else
+        # Article.display_saved_articles
         puts "Please enter the number you want to delete"
         number = gets.strip
         article_index= number.to_i
@@ -99,6 +108,7 @@ class Cli
         puts " Article number #{article_index} deleted."
         puts "----------------------------------------------------"
         Article.display_saved_articles
+        end
         self.looping?
     end
 
