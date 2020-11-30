@@ -21,6 +21,10 @@ class Article
         @@all
     end
 
+    def clear
+        puts "\e[2J\e[f"
+    end
+
     def self.article_clear
         @@all=[]
     end

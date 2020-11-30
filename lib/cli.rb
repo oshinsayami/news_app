@@ -13,7 +13,12 @@ class Cli
         input.to_i - 1
     end
 
+    def clear
+        puts "\e[2J\e[f"
+    end
+
     def options?
+        self.clear
         puts "----------------------------------------------------"
         Article.article_clear
         puts "Select the following options:"
@@ -95,10 +100,7 @@ class Cli
 
     def delete_articles?
         # binding.pry
-        if Article.display_saved_articles == nil
-            puts "No any saved articles to delete."
-        else
-        # Article.display_saved_articles
+        Article.display_saved_articles
         puts "Please enter the number you want to delete"
         number = gets.strip
         article_index= number.to_i
@@ -108,7 +110,6 @@ class Cli
         puts " Article number #{article_index} deleted."
         puts "----------------------------------------------------"
         Article.display_saved_articles
-        end
         self.looping?
     end
 
