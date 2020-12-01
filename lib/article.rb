@@ -1,5 +1,6 @@
 
-class Article
+class Article 
+    # binding.pry
 
     attr_accessor :title, :author, :id, :content
 
@@ -14,16 +15,16 @@ class Article
         # @description = description
         @content = content
         @id = id
-        @@all << self
+        @@all << self  
+        # binding.pry
     end
 
     def self.all
         @@all
+        # binding.pry
     end
 
-    def clear
-        puts "\e[2J\e[f"
-    end
+    
 
     def self.article_clear
         @@all=[]
@@ -34,12 +35,20 @@ class Article
     end
 
     def self.display_articles
+        # binding.pry
         puts "----------------------------------------------------"
         puts "Please choose one of the following articles:"
         puts "----------------------------------------------------"
-        self.all.each_with_index{|article, index| puts "#{index + 1}. #{article.title}"}
+        sort = Article.all.sort_by {|article| article.title}
+        sort.each_with_index{|article, index| 
+        # binding.pry
+        # Article.all.sort_by.with_index{|article, index| article.title}
+
+        puts "#{index + 1}. #{article.title}"}
         puts "----------------------------------------------------"
     end
+
+
 
     def self.display_individual_article(index)
         # binding.pry

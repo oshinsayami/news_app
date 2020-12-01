@@ -13,12 +13,7 @@ class Cli
         input.to_i - 1
     end
 
-    def clear
-        puts "\e[2J\e[f"
-    end
-
     def options?
-        self.clear
         puts "----------------------------------------------------"
         Article.article_clear
         puts "Select the following options:"

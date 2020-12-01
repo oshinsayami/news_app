@@ -24,6 +24,7 @@ class Api
         puts "How many articles do you want in your page?"
             n=gets.strip
             i=n.to_i
+            # binding.pry
         articles["articles"][1..i]
 # binding.pry
     end
@@ -31,6 +32,7 @@ class Api
     def create_articles
         # binding.pry
         self.get_articles.each{|article| Article.new(article["title"], article["author"], article["id"], article["content"])}
+
     end
 end
 
