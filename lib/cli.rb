@@ -5,7 +5,6 @@ class Cli
         puts "----------------------------------------------------"
         puts "Welcome to ALL ABOUT NEWS"
         puts "----------------------------------------------------"
-        # binding.pry
         self.options?
     end
 
@@ -31,7 +30,6 @@ class Cli
         when "2"
             self.goto_search_history?
         when "3"
-            # binding.pry
             self.goto_saved_articles?
         when "4"
             self.delete_articles?
@@ -65,7 +63,6 @@ class Cli
                  Article.save_article(index)
             end
             self.looping?
-            # binding.pry
     end
 
     def looping?
@@ -82,24 +79,20 @@ class Cli
 
     
     def goto_search_history?
-        # binding.pry
         Article.display_search_history
         self.looping?
     end
 
     def goto_saved_articles?
-        # binding.pry
         Article.display_saved_articles
         self.looping?
     end
 
     def delete_articles?
-        # binding.pry
         Article.display_saved_articles
         puts "Please enter the number you want to delete"
         number = gets.strip
         article_index= number.to_i
-        # binding.pry
         Article.save_for_later.delete_at(article_index-1)
         puts "----------------------------------------------------"
         puts " Article number #{article_index} deleted."
